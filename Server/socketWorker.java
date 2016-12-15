@@ -12,11 +12,13 @@ import java.io.*;
  */
 class SocketWorker implements Runnable {
   private Socket client;
+  // VARIABILE PER CONTROLLARE IL PRIMO STREAM DI DATI
+  private boolean isNick = false;
+  private String nick = "";
 
     //Constructor: inizializza le variabili
     SocketWorker(Socket client) {
         this.client = client;
-        System.out.println("Connesso con: " + client);
     }
 
     // Questa e' la funzione che viene lanciata quando il nuovo "Thread" viene generato
@@ -32,26 +34,70 @@ class SocketWorker implements Runnable {
           System.out.println("Errore: in|out fallito");
           System.exit(-1);
         }
-
         String line = "";
-        int clientPort = client.getPort(); //il "nome" del mittente (client)
+        //FINCHE' IL NICKNAME NON SI RIPETE 
+        while(!isNick)
+        {
+            try{
+                // LEGGO IL NICKNAME
+                line = in.readLine();
+                boolean trov = false;
+                int i = 0;
+                //FINCHE' NON SCORRO TUTTA LA LISTA O NON TROVO IL NICKNAME
+                while(trov==false && i < ServerTestoMultiThreaded.listaSocket.size())
+                {
+                    //CONFRONTA IL NICKNAME INSERITO CON LA POSIZIONE i NELLA LISTA 
+                    //SE LO TROVA IMPOSTA LA VARIABILE A TRUE, ALTRIMENTI AUMENTA IL CONTATORE
+                    if(ServerTestoMultiThreaded.listaSocket.get(i).getNick().equals(line))
+                    {
+                        trov = true;
+                    } else i++;
+                }
+                //SE NON VIENE TROVATO IL NICKNAME 
+                if(!trov)
+                {
+                    //IMPOSTA LE VARIABILI
+                    nick = line;
+                    isNick = true;
+                } else {
+                    //ALTRIMENTI STAMPA SUL CLIENT
+                    out.println("Nickname gia' esistente, inseriscine un altro");
+                }
+            } catch(IOException e) { System.out.println("Lettura da socket fallito");
+                                     System.exit(-1); }
+        }
+        System.out.println("Connesso con: " + nick);
         while(line != null){
           try{
             line = in.readLine();
-            //Manda lo stesso messaggio appena ricevuto con in aggiunta il "nome" del client
-            out.println("Server-->" + clientPort + ">> " + line);
-            //scrivi messaggio ricevuto su terminale
-            System.out.println(clientPort + ">> " + line);
-           } catch (IOException e) {
+            //SCRIVENDO NICKNAME SUL CLIENT, STAMPA TUTTA LA LISTA
+            if(line.equals("Nickname")){
+              for(int i = 0; i < ServerTestoMultiThreaded.listaSocket.size(); i++)
+                {
+                    out.println("Client "+(i+1)+": "+ServerTestoMultiThreaded.listaSocket.get(i).getNick());
+                }
+            } else {
+              //Manda lo stesso messaggio appena ricevuto con in aggiunta il "nome" del client
+              out.println("Server-->" + nick + ">> " + line);
+              //scrivi messaggio ricevuto su terminale
+              System.out.println(nick + ">> " + line);
+            }
+          } catch (IOException e) {
             System.out.println("lettura da socket fallito");
             System.exit(-1);
            }
         }
         try {
             client.close();
-            System.out.println("connessione con client: " + client + " terminata!");
+            System.out.println("connessione con client: " + nick + " terminata!");
         } catch (IOException e) {
-            System.out.println("Errore connessione con client: " + client);
+            System.out.println("Errore connessione con client: " + nick);
         }
     }
+    // METODO CHE RITORNA IL NICKNAME
+    public String getNick()
+    {
+        return nick;
+    }
+  
 }
