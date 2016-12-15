@@ -7,6 +7,8 @@
 /**
  *
  * @author Prof. Matteo Palitto
+ * @author Misael Miccichè
+ * @author De Santis Veronica
  */
 import java.net.*;
 import java.io.*;
@@ -24,7 +26,13 @@ public class ClientTesto {
             System.out.println("Uso: java client-Testo <indirizzo IP Server> <Porta Server>");
             return;
         }
-		
+	// CHIEDO ALL'UTENTE L'INSERIMENTO DEL NICKNAME
+	String nick = null;
+        try{
+            System.out.println("Inserisci il nickname");
+            nick = (new BufferedReader(new InputStreamReader(System.in))).readLine();
+        } catch(IOException e) { System.out.println("I/O Error");
+                                 System.exit(-1); }	
 	String hostName = args[0];
 	int portNumber = Integer.parseInt(args[1]);
 	try {
@@ -51,7 +59,8 @@ public class ClientTesto {
             // connessione allo StdIn per inserire il testo dalla linea di comando
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
             String userInput;
-            
+            // IL PRIMO STREAM E' RAPPRESENTATO DAL NICKNAME
+            out.println(nick);
             //leggi da linea di comando il testo da spedire al Server
             System.out.print(">"); //visualizza il prompt
             while ((userInput = stdIn.readLine()) != null) {
