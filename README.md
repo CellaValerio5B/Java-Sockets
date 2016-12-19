@@ -22,6 +22,7 @@ Scarica i files del progetto cliccando "Clone/Download"
 * estrai i files e spostali nella sub-directory "src" dei rispettivi progetti (es. Documents\NetBeansProjects\Java-Sockets-Server\src)
 
 ## Uso
+NOTA:Ricordarsi di aggiornare il comando per visualizzare la lista client
 Dal terminale del Server:
 ```
 java ServerTestoMultiThreaded <server port>
