@@ -1,12 +1,11 @@
 
-# Java-Sockets
-Concetti e realizzazione di una semplice connessione Client/Server usando Sockets in Java
-```
-Obitettivo del progetto: inviare linee di testo da un programma (Client)... -->
-                         --> ad un altro (Server) anche eventualmente remoto.
-```
-**Nota:** Visiona le [Slides della lezione](https://docs.google.com/presentation/d/19vhath-GbtUO7ofpukJE4Opi16aTfrnurJ2lUizB0iE/edit?usp=sharing)
+# Descrizione
+Realizzazione di una chat tramite una semplice connessione Client/Server utilizzando Sockets in Java.
+Obiettivo del progetto: inviare linee di testo da un programma (Client)->
+ad un altro ( Server) con la possibilità di effettuare l'operazione anche in remoto.
+
 ## Istruzioni
+
 Per replicare il progetto sul vostro computer personale. Gli allievi potranno quindi apportare modifiche ed eventualmente fonderle con il progetto principale, o in alcuni casi creare un progetto propio.
 
 ### Prerequisiti
@@ -15,13 +14,38 @@ Java SDK (Software Development Kit) - programma per la compilazione (javac) da c
 E' suggerito anche l'utilizzo di netBeans IDE (Integrated Development Envirorment)
 ```
 
-### Installazione
-Scarica i files del progetto cliccando "Clone/Download"
-* in NetBeans crea due nuovi progetti "Java-Sockets-Client" e "Java-Sockets-Server"
+ -### Installazione
+ -Scarica i files del progetto cliccando "Clone/Download"
+ - in NetBeans crea due nuovi progetti "Java-Sockets-Client" e "Java-Sockets-Server"
+ -NetBeans (Java)
+ 
 
 * estrai i files e spostali nella sub-directory "src" dei rispettivi progetti (es. Documents\NetBeansProjects\Java-Sockets-Server\src)
 
 ## Uso
+-Estrai i files e spostali nella sub-directory "src" dei rispettivi progetti (es. Documents\NetBeansProjects\JavaSocketsServer\src)
+-host puo' essere espresso sia in forma numerica (es. 127.0.0.1) che in forma alfanumerica (es. www.nomesito.it)
+ 
+ -NOTA: posso collegarmi al server con quanti Clients desidero, sia su stesso computer che da terminali su computer diversi.
+ 
+ -### Esempio usando stesso computer sia per eseguire Server che multipli Clients
+ -Da finestra di comando eseguire il Server:
+ -```
+ -cd Documents\NetBeansProjects\Java-Sockets-Server\src
+ -java ServerTestoMultiThreaded 1234
+ 
+  -```
+ -Da una nuova finestra di comando, eseguire il ```primo``` Client
+ -```
+ -cd Documents\NetBeansProjects\Java-Sockets-Client\src
+ -java client-Testo localhost 1234
+ -```
+ -Da un'ulteriore nuova finestra di comando, eseguire il ```secondo``` Client
+ -```
+ -cd Documents\NetBeansProjects\Java-Sockets-Client\src
+ -java client-Testo localhost 1234
+ -```
+
 Dal terminale del Server:
 ```
 java ServerTestoMultiThreaded <server port>
@@ -34,21 +58,7 @@ dove:
 ```
 NOTA: posso collegarmi al server con quanti Clients desidero, sia su stesso computer che da terminali su computer diversi.
 
-### Esempio usando stesso computer sia per eseguire Server che multipli Clients
-Da finestra di comando esguire il Server:
-```
-cd Documents\NetBeansProjects\Java-Sockets-Server\src
-java ServerTestoMultiThreaded 1234
-```
-Da nuova finestra di comando esguire il ```primo``` Client
-```
-cd Documents\NetBeansProjects\Java-Sockets-Client\src
-java client-Testo localhost 1234
-```
-Da nuova finestra di comando esguire il ```secondo``` Client
-```
-cd Documents\NetBeansProjects\Java-Sockets-Client\src
-java client-Testo localhost 1234
+
 ```
 ## Diventa un collaboratore
 Questa e' la lista di nuove funzioni da aggiungere al progetto:
@@ -68,9 +78,9 @@ Questa e' la lista di nuove funzioni da aggiungere al progetto:
 3.3. Possibilita' di uscire dalla "group chat"
 ```
 Mentre le modifiche descritte dai primi due punti risulteranno in una fusione (merge), le modifiche descritti dai punti 3 dovranno far parte di un nuovo progetto che parte da quello originario (fork).
- 
-## Licenza
-opensource nel modo piu' completo del termine :) senza alcuna restrizione!
+ +## Collaboratori
+   
+ -Cella, Ientile, Ignizio, Caria, Menabò
 
-## Ringraziamenti
-a mia moglie che mi ha permesso di trovare il tempo per questo progetto guardando il bambino ;)
+
+
