@@ -1,15 +1,20 @@
 
 # Descrizione
+
 Realizzazione di una chat tramite una semplice connessione Client/Server utilizzando Sockets in Java.
 Obiettivo del progetto: inviare linee di testo da un programma (Client)->
 ad un altro ( Server) con la possibilità di effettuare l'operazione anche in remoto.
 
 ## Istruzioni
 
-Per replicare il progetto sul vostro computer personale. Gli allievi potranno quindi apportare modifiche ed eventualmente fonderle con il progetto principale, o in alcuni casi creare un progetto propio.
+Replicare il progetto sul proprio computer personale, con la possibilità di apportare modifiche ed eventualmente fonderle con il proprio progetto.
+Una volta applicate le modifiche, verrà effettuata una pull request, e in quel momento gli altri membri del gruppo potranno discutere sulle modifiche effettuate ed eventualmente correggerle, con il il fine di raggiungere il merge del progetto.
+
+
 
 ### Prerequisiti
 Java SDK (Software Development Kit) - programma per la compilazione (javac) da codice in Java a ByteCode. L'installazione comprende anche Java JRE (Java Runtime Envirorment) che fornisce la Virtual Machine (VM) su cui far eseguire il ByteCode.
+Utilizzo del prompt dei comandi.
 ```
 E' suggerito anche l'utilizzo di netBeans IDE (Integrated Development Envirorment)
 ```
@@ -81,6 +86,5 @@ Mentre le modifiche descritte dai primi due punti risulteranno in una fusione (m
  +## Collaboratori
    
  -Cella, Ientile, Ignizio, Caria, Menabò
-
 
 
