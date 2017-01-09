@@ -19,7 +19,7 @@ Utilizzo del prompt dei comandi.
 E' suggerito anche l'utilizzo di netBeans IDE (Integrated Development Envirorment)
 ```
  
- INSTALLAZIONE
+ # INSTALLAZIONE
  
  -Scarica i files del progetto cliccando "Clone/Download"
  - in NetBeans crea due nuovi progetti "Java-Sockets-Client" e "Java-Sockets-Server"
