@@ -23,6 +23,25 @@ public class ServerTestoMultiThreaded {
             System.out.println("Uso: java ServerTestoMultithreaded <Porta Server>");
             return;
         }
+        //COMANDO PER STAMPARE LISTA
+           String testoDaServer = "";
+          int i;
+        try {
+            while ((testoDaServer = in.readLine()) != null) {
+                System.out.println(testoDaServer);
+                //nel caso il testo ricevuto dal Server contiene "Bye." termina il Client
+                if (testoDaServer.contains("ClientList.")) {
+                   for(i=o;i<listaSocket().length;i++)
+                   {
+                   System.out.println(listaSocket(i));
+                   }
+                    
+                    break;
+                }
+            }
+        
+        
+        
         //SE E' UNIVOCA LEGGE IL NUMERO DI PORTA INSERITO
         int portNumber = Integer.parseInt(args[0]);
 
