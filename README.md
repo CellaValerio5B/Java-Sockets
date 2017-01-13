@@ -5,6 +5,7 @@ Realizzazione di una chat tramite una semplice connessione Client/Server utilizz
 Obiettivo del progetto: inviare linee di testo da un programma (Client)->
 ad un altro ( Server) con la possibilità di effettuare l'operazione anche in remoto.
 
+
 ## Istruzioni
 
 Replicare il progetto sul proprio computer personale, con la possibilità di apportare modifiche ed eventualmente fonderle con il proprio progetto.
